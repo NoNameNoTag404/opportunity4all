@@ -1,0 +1,301 @@
+/* ===================== RESET ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===================== COLORS ===================== */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --light-blue: #f4f9ff;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--white);
+  border-bottom: 2px solid var(--blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertical align items */
+  padding: 15px 50px;
+  z-index: 1000;
+}
+
+.logo {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 28px; /* slightly larger */
+  line-height: 1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* ===================== SLIDESHOW ===================== */
+.slideshow-container {
+  margin-top: 70px; /* navbar offset */
+  position: relative;
+}
+
+/* slides */
+.slide {
+  display: none;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--blue);
+  display: block;
+}
+
+/* fade animation */
+.fade {
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* slide content */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30,144,255,0.9);
+  color: var(--white);
+  padding: 25px 45px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.slide-content h2 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.slide-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: var(--white);
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slide-btn:hover {
+  opacity: 0.8;
+}
+
+/* arrows */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: rgba(255,255,255,0.7);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ===================== MAIN CONTENT ===================== */
+main {
+  width: 100%;
+}
+
+/* content sections */
+.content-section {
+  display: none; /* hidden until activated */
+  padding: 100px 150px;
+  line-height: 1.8;
+  color: var(--blue);
+}
+
+.content-section.show {
+  display: block;
+}
+
+/* ===================== HEADERS ===================== */
+/* enlarge headers outside cards */
+.content-section h2 {
+  font-size: 36px; /* main section titles */
+  margin-bottom: 20px;
+}
+
+.content-section h3 {
+  font-size: 24px; /* subsections */
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.lead {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Blue sections */
+.blue-section {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* Blue section cards */
+.blue-section .white-card {
+  background: var(--white);
+  color: var(--blue);
+  border: 1px solid #d6e8ff;
+}
+
+.blue-section .white-card h4,
+.blue-section .white-card p {
+  color: var(--blue);
+}
+
+/* ===================== STATS ===================== */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat h3 {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+/* ===================== CARD GRID ===================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+/* CARD STYLING */
+.card, .white-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 20px;
+  border-radius: 6px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card {
+  background: var(--light-blue);
+  border: 1px solid #d6e8ff;
+  color: var(--blue);
+}
+
+.white-card {
+  background: var(--white);
+  color: var(--blue);
+  border: 1px solid #d6e8ff;
+}
+
+.card:hover, .white-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card h4, .white-card h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* ===================== LISTS ===================== */
+ul {
+  margin-top: 15px;
+  padding-left: 20px;
+  line-height: 1.6; /* more spacing between items */
+}
+
+li {
+  margin-bottom: 12px; /* more space between items */
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 2px solid var(--blue);
+  color: var(--blue);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width: 1200px) {
+  .content-section {
+    padding: 80px 50px;
+  }
+}
+
+@media(max-width: 900px){
+  .content-section {
+    padding: 70px 30px;
+  }
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+@media(max-width: 600px){
+  .slide-content {
+    padding: 20px 25px;
+  }
+  .slide-content h2 {
+    font-size: 22px;
+  }
+  .card, .white-card {
+    min-height: 160px;
+  }
+  .card-grid {
+    gap: 20px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+}
