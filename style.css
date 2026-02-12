@@ -51,6 +51,44 @@
   opacity: 0.7;
 }
 
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--blue);
+}
+
+/* Mobile styles */
+@media(max-width: 600px){
+  .hamburger {
+    display: block; /* show hamburger only on mobile */
+  }
+
+  .nav-links {
+    display: none; /* hide links by default */
+    flex-direction: column;
+    width: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 60px; /* below navbar */
+    left: 0;
+    border-top: 1px solid var(--blue);
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex; /* show when active */
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
 /* ===================== SLIDESHOW ===================== */
 .slideshow-container {
   margin-top: 70px; /* navbar offset */
@@ -299,3 +337,4 @@ footer {
     margin-top: 10px;
   }
 }
+
