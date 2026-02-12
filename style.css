@@ -21,37 +21,13 @@
   background: var(--white);
   border-bottom: 2px solid var(--blue);
   display: flex;
-  justify-content: space-between;
-  align-items: center; /* vertical align items */
+  justify-content: space-between; /* logo left, hamburger/right or links */
+  align-items: center;
   padding: 15px 50px;
   z-index: 1000;
 }
 
-.logo {
-  color: var(--blue);
-  font-weight: 700;
-  font-size: 28px; /* slightly larger */
-  line-height: 1;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--blue);
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.nav-links a:hover {
-  opacity: 0.7;
-}
-
-/* Hide hamburger on desktop */
+/* Hamburger button for mobile */
 .hamburger {
   display: none;
   background: none;
@@ -59,16 +35,33 @@
   font-size: 28px;
   cursor: pointer;
   color: var(--blue);
+  order: 2; /* ensures it is at the far right */
 }
 
-/* Mobile styles */
+.logo {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  order: 1; /* ensures it stays on the left */
+}
+
+/* Nav links (desktop) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  order: 3; /* stays in between for desktop or hidden on mobile */
+}
+
+/* ===================== MOBILE DROPDOWN ===================== */
 @media(max-width: 600px){
   .hamburger {
     display: block; /* show hamburger only on mobile */
   }
 
   .nav-links {
-    display: none; /* hide links by default */
+    display: none; /* hide links initially */
     flex-direction: column;
     width: 100%;
     background: var(--white);
